@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
