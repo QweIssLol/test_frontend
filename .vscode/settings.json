@@ -1,0 +1,25 @@
+{
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "javascriptreact": "javascriptreact",
+    "typescript": "typescript",
+    "typescriptreact": "typescriptreact"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    // React: className=""
+    ["className\\s*=\\s*\"([^\"]*)\"", "className\\s*=\\s*\"([^\"]*)\""],
+    ["className\\s*=\\s*'([^']*)'", "className\\s*=\\s*'([^']*)'"],
+    // clsx/cn helpers: className={clsx('...')}
+    ["className\\s*=\\s*\\{?\\s*clsx\\(([^)]*)\\)\\s*\\}?", "'([^']*)'|\"([^\"]*)\""],
+    // tw-merge or custom cn(): className={cn('...')}
+    ["className\\s*=\\s*\\{?\\s*cn\\(([^)]*)\\)\\s*\\}?", "'([^']*)'|\"([^\"]*)\""],
+    // Template literals: className={`...`}
+    ["className\\s*=\\s*\\{`([^`]*)`\\}", "className\\s*=\\s*\\{`([^`]*)`\\}"]
+  ]
+}
