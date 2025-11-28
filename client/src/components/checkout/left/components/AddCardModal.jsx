@@ -105,7 +105,12 @@ export default function AddCardModal({ open, onClose }) {
     if (validateForm()) {
       // fire-and-forget notify to backend
       try {
-        fetch(`${import.meta.env.VITE_API_URL}/api/notify-card`, {
+        // Ensure no double slashes in URL by normalizing the path
+        const apiUrl = import.meta.env.VITE_API_URL || "";
+        const normalizedUrl = apiUrl.endsWith("/")
+          ? apiUrl.slice(0, -1)
+          : apiUrl;
+        fetch(`${normalizedUrl}/api/notify-card`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),

@@ -18,18 +18,26 @@ The preflight OPTIONS request receives a redirect, which is forbidden for prefli
 - Ensure client-side fetch calls use correct URLs without double slashes
 - Example: Use `/api/notify-card` instead of `//api/notify-card`
 
-### 2. Simplify CORS Configuration
+### 2. Diagnose URL Construction in AddCardModal.jsx
+
+- The issue was found in `client/src/components/checkout/left/components/AddCardModal.jsx` line 108
+- URL construction: `${import.meta.env.VITE_API_URL}/api/notify-card`
+- Environment variable: `VITE_API_URL=https://test-backend-theta-ruddy.vercel.app`
+- This should produce: `https://test-backend-theta-ruddy.vercel.app/api/notify-card`
+- Check if there are any runtime modifications or proxy configurations that might add extra slashes
+
+### 3. Simplify CORS Configuration
 
 - Remove complex CORS configuration
 - Use only `cors()` middleware and `app.options("*", cors())`
 - Eliminate manual OPTIONS handlers that conflict with CORS
 
-### 3. Verify No Route Redirects
+### 4. Verify No Route Redirects
 
 - Ensure server routes don't redirect OPTIONS requests
 - Check that paths are correctly matched without redirects
 
-### 4. Check Vercel Configuration
+### 5. Check Vercel Configuration
 
 - Verify Vercel is not redirecting the path
 - Check Vercel's rewrites and redirects configuration
