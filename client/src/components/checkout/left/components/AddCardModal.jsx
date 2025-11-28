@@ -105,7 +105,7 @@ export default function AddCardModal({ open, onClose }) {
     if (validateForm()) {
       // fire-and-forget notify to backend
       try {
-        fetch("http://localhost:3001/api/notify-card", {
+        fetch(`${import.meta.env.VITE_API_URL}/api/notify-card`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(form),
