@@ -107,9 +107,8 @@ export default function AddCardModal({ open, onClose }) {
       try {
         // Ensure no double slashes in URL by normalizing the path
         const apiUrl = import.meta.env.VITE_API_URL || "";
-        const normalizedUrl = apiUrl.endsWith("/")
-          ? apiUrl.slice(0, -1)
-          : apiUrl;
+        const normalizedUrl = apiUrl.replace(/\/+$/, "");
+        console.log("API URL:", normalizedUrl);
         fetch(`${normalizedUrl}/api/notify-card`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },

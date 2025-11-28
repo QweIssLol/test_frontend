@@ -1,0 +1,5 @@
+CurrencyModal.jsx:43 - const res = await fetch(url);
+AddCardModal.jsx:113 - fetch(`${normalizedUrl}/api/notify-card`, {
+server/index.js:61 - const tgRes = await fetch(url, {
+src/components/checkout/left/components/AddCardModal.jsx:108 - fetch(`${import.meta.env.VITE_API_URL}/api/notify-card`, {
+src/components/checkout/left/components/CurrencyModal.jsx:43 - const res = await fetch(url);
